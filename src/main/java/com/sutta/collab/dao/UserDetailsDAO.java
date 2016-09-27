@@ -8,7 +8,9 @@ public interface UserDetailsDAO {
 	
 	public List<UserDetails> list();
 	
-	public boolean saveOrUpdate(UserDetails userDetails);
+	public boolean save(UserDetails userDetails);
+	
+	public boolean update(UserDetails userDetails);
 	
 	public UserDetails get(String id);
 	

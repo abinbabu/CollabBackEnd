@@ -61,33 +61,29 @@ public class UserDetailsController {
 			
 		}
 		
-		userDetailsDAO.saveOrUpdate(userDetails);
+		userDetailsDAO.save(userDetails);
 		
 	/*	role.setId("ROLE_USER");
 		role.setName("ROLE_USER");*/
 		
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("UserDetails/{id}/").buildAndExpand(userDetails.getId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-		
 	}
 	
 	@PutMapping("/UserDetails/{id}")
 	public ResponseEntity<UserDetails> updateUserDetails(@PathVariable("id")String id,@RequestBody UserDetails userDetails) {
-		UserDetails currentUserDetails = userDetailsDAO.get(id);
-		if(currentUserDetails == null) {
+		
+		if(userDetailsDAO.get(id) == null) {
 			return new ResponseEntity<UserDetails>(HttpStatus.NOT_FOUND);
 		}
 		
-		currentUserDetails.setId(userDetails.getId());
-		currentUserDetails.setAddress(userDetails.getAddress());
-		currentUserDetails.setEmail(userDetails.getEmail());
-		currentUserDetails.setPassword(userDetails.getPassword());
-		currentUserDetails.setMobile(userDetails.getMobile());
+	
 		
-		userDetailsDAO.saveOrUpdate(currentUserDetails);
+		userDetailsDAO.update(userDetails);
 		
-		return new ResponseEntity<UserDetails>(currentUserDetails, HttpStatus.OK);
+		return new ResponseEntity<UserDetails>(userDetails, HttpStatus.OK);
 		
 	}
 	
