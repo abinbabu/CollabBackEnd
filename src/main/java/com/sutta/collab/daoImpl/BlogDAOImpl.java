@@ -3,7 +3,7 @@ package com.sutta.collab.daoImpl;
 import java.util.List;
 
 import org.hibernate.Criteria;
-
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,18 +57,6 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 	
 
-	@Transactional
-	public boolean saveOrUpdate(Blog blog) {
-
-      try {
-		sessionFactory.getCurrentSession().saveOrUpdate(blog);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		return false;
-	}
-		return true;
-	}
 
 
 	@Transactional
@@ -90,6 +78,38 @@ public class BlogDAOImpl implements BlogDAO {
      
       return true;
 		
+	}
+
+
+
+	@Transactional
+	public boolean save(Blog blog) {
+	
+		
+		try {
+			sessionFactory.getCurrentSession().save(blog);
+		} catch (HibernateException e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+	
+		return true;
+	}
+
+
+	@Transactional
+	public boolean update(Blog blog) {
+
+		try {
+			sessionFactory.getCurrentSession().update(blog);
+		} catch (HibernateException e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+	
+		return true;
 	}
 
 }

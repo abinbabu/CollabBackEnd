@@ -22,7 +22,7 @@ public class BlogTest {
 		blog.setName("NewB");
 		blog.setDescription("TEST");
 		
-		blogDAO.saveOrUpdate(blog);
+		blogDAO.save(blog);
 		
 		context.close();
 	}

@@ -60,7 +60,7 @@ public class BlogController {
 		/*
 		 * role.setId("ROLE_USER"); role.setName("ROLE_USER");
 		 */
-		blogDAO.saveOrUpdate(blog);
+		blogDAO.save(blog);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("Blog/{id}/").buildAndExpand(blog.getId()).toUri());
@@ -71,17 +71,15 @@ public class BlogController {
 	@PutMapping("/Blog/{id}")
 	public ResponseEntity<Blog> updateBlog(@PathVariable("id") String id,
 			@RequestBody Blog blog) {
-		Blog currentBlog = blogDAO.get(id);
-		if (currentBlog == null) {
+		
+		if (blogDAO.get(id) == null) {
 			return new ResponseEntity<Blog>(HttpStatus.NOT_FOUND);
 		}
 
-		currentBlog.setId(blog.getId());
-		currentBlog.setName(blog.getName());
-		currentBlog.setDescription(blog.getDescription());
-		blogDAO.saveOrUpdate(currentBlog);
+		
+		blogDAO.update(blog);
 
-		return new ResponseEntity<Blog>(currentBlog, HttpStatus.OK);
+		return new ResponseEntity<Blog>(blog, HttpStatus.OK);
 
 	}
 
