@@ -7,18 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CollabBackEnd Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-<<<<<<< HEAD
-	<properties>
-		
-		<failOnMissingWebXml>false</failOnMissingWebXml>
-	</properties>
-	
-=======
-	
-	<properties>
-	<failOnMissingWebXml>false</failOnMissingWebXml>
-	</properties>
->>>>>>> refs/remotes/origin/master
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
