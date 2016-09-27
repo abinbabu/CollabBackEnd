@@ -2,7 +2,7 @@ package com.sutta.collab.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.sutta.collab.config.AppConfig;
+
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
