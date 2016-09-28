@@ -75,6 +75,7 @@ public class BlogController {
 		if (blogDAO.get(id) == null) {
 			return new ResponseEntity<Blog>(HttpStatus.NOT_FOUND);
 		}
+		blog.setId(id);
 
 		
 		blogDAO.update(blog);
