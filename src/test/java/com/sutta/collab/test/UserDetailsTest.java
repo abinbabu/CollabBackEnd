@@ -26,8 +26,8 @@ public class UserDetailsTest {
 		Role role = (Role) context.getBean("role");
 		RoleDAO roleDAO = (RoleDAO) context.getBean("roleDAO");
 		*/
-		userDetails.setId("hridesh");
-		userDetails.setPassword("hridesh");
+		userDetails.setId("sutta");
+		userDetails.setPassword("sutta");
 		userDetails.setName("Hridesh");
 		userDetails.setEmail("hrideshh@yahoo.com");
 		userDetails.setMobile("9544151378");
@@ -44,7 +44,7 @@ public class UserDetailsTest {
 		userRoleDAO.saveOrUpdate(userRole);
 		*/
 		
-		userDetailsDAO.saveOrUpdate(userDetails);
+		userDetailsDAO.save(userDetails);
 		
 		
 		

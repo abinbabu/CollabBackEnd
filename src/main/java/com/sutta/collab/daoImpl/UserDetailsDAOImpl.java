@@ -30,23 +30,11 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		return list;
 	}
 	
-	@Transactional
-	public boolean saveOrUpdate(UserDetails userDetails) {
-		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(userDetails);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			return false;
-		}
-		
-		return true;
-
-	}
+	
 	
 	@Transactional
 	public UserDetails get(String id) {
-		String hql = "from User_Detail where id= '" + id + "'";
+		String hql = "from USER_DETAIL where id= '" + id + "'";
 		@SuppressWarnings("unchecked")
 		Query<UserDetails> query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<UserDetails> listUserDetails = query.getResultList();
@@ -73,5 +61,31 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		
 		return true;
 
+	}
+
+	@Transactional
+	public boolean save(UserDetails userDetails) {
+		try {
+			sessionFactory.getCurrentSession().save(userDetails);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Transactional
+	public boolean update(UserDetails userDetails) {
+		try {
+			sessionFactory.getCurrentSession().update(userDetails);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 }
