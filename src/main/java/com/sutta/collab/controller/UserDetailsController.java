@@ -80,7 +80,7 @@ public class UserDetailsController {
 		}
 		
 	
-		
+		userDetails.setId(id);
 		userDetailsDAO.update(userDetails);
 		
 		return new ResponseEntity<UserDetails>(userDetails, HttpStatus.OK);

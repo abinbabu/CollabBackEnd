@@ -34,7 +34,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	
 	@Transactional
 	public UserDetails get(String id) {
-		String hql = "from USER_DETAIL where id= '" + id + "'";
+		String hql = "from UserDetails where id= '" + id + "'";
 		@SuppressWarnings("unchecked")
 		Query<UserDetails> query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<UserDetails> listUserDetails = query.getResultList();

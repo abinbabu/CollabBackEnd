@@ -39,7 +39,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		connectionProperties.put("hibernate.show_sql", "true");
 		connectionProperties.put("hibernate.format_sql", "true");
 		connectionProperties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-		connectionProperties.put("hibernate.hbm2ddl.auto", "update");
+		/*connectionProperties.put("hibernate.hbm2ddl.auto", "update");*/
 		
 		datasource.setConnectionProperties(connectionProperties);
 		return datasource;
